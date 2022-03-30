@@ -6,21 +6,24 @@ class DescriptionMenu extends StatelessWidget {
   String descriptionPlace;
 
   DescriptionMenu(this.namePlace, this.stars, this.descriptionPlace);
+
   @override
   Widget build(BuildContext context) {
-    final start_border = Container(
-      margin: EdgeInsets.only(top: 323.0, right: 3.0),
-      child: Icon(
-        Icons.star_border,
-        color: Color(0xFFf0C611),
-      ),
-    );
+    // TODO: implement build
 
-    final start_half = Container(
+    final star_half = Container(
       margin: EdgeInsets.only(top: 323.0, right: 3.0),
       child: Icon(
         Icons.star_half,
-        color: Color(0xFFf0C611),
+        color: Color(0xFFf2C611),
+      ),
+    );
+
+    final star_border = Container(
+      margin: EdgeInsets.only(top: 323.0, right: 3.0),
+      child: Icon(
+        Icons.star_border,
+        color: Color(0xFFf2C611),
       ),
     );
 
@@ -28,39 +31,43 @@ class DescriptionMenu extends StatelessWidget {
       margin: EdgeInsets.only(top: 323.0, right: 3.0),
       child: Icon(
         Icons.star,
-        color: Color(0xFFf0C611),
+        color: Color(0xFFf2C611),
       ),
     );
 
-    final title_starts_description = Row(
+    final title_stars = Row(
       children: <Widget>[
         Container(
           margin: EdgeInsets.only(top: 320.0, left: 20.0, right: 20.0),
           child: Text(
             namePlace,
-            style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+            style: TextStyle(
+                fontFamily: "Lato",
+                fontSize: 11.0,
+                fontWeight: FontWeight.w900),
             textAlign: TextAlign.left,
           ),
         ),
         Row(
-          children: <Widget>[star, star, star, star, start_half],
+          children: <Widget>[star, star, star, star, star_half],
         )
       ],
     );
-    final descriptionText = Container(
-      margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
-      child: Text(
+
+    final description = Container(
+      margin: new EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+      child: new Text(
         descriptionPlace,
-        style: TextStyle(fontSize: 11.0),
-        textAlign: TextAlign.justify,
-      ),
-    );
-    final content = Container(
-      child: Column(
-        children: <Widget>[title_starts_description, descriptionText],
+        style: const TextStyle(
+            fontFamily: "Lato",
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF56575a)),
       ),
     );
 
-    return content;
+    return Column(
+      children: <Widget>[title_stars, description],
+    );
   }
 }
