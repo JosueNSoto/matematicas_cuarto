@@ -5,7 +5,8 @@ class DescriptionMenu extends StatelessWidget {
   int stars;
   String descriptionPlace;
 
-  DescriptionMenu(this.namePlace, this.stars, this.descriptionPlace);
+  DescriptionMenu(this.namePlace, this.stars,
+      this.descriptionPlace); //Constructor para pasar los datos al main
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class DescriptionMenu extends StatelessWidget {
           ),
         ),
         Row(
-          children: <Widget>[star, star, star, star, star_half],
+          children: <Widget>[star, star, star, star, star_border],
         )
       ],
     );

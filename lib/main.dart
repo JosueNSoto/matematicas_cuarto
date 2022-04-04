@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'descriptionMenu.dart';
+import 'review_list.dart';
+import 'gradient_back.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +15,8 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     String descriptionDummy =
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -28,10 +32,18 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          appBar: AppBar(
-            title: Text("Hola Mundo Feliz"),
+          //body: new DescriptionPlace("Bahamas", 4, descriptionDummy),
+          body: Stack(
+            children: <Widget>[
+              ListView(
+                children: <Widget>[
+                  DescriptionMenu("Bahamas", 4, descriptionDummy),
+                  ReviewList()
+                ],
+              ),
+              GradientBack()
+            ],
           ),
-          body: new DescriptionMenu("Bahamas", 5, descriptionDummy),
         ) //MyHomePage(title: 'Flutter Demo Home Page'),
         );
   }
